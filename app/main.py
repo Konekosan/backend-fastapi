@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.routes import fruit
 from app.routes import weather
+from app.routes import programmation
 
 app = FastAPI()
 
@@ -20,3 +21,4 @@ app.add_middleware(
 
 app.include_router(fruit.router, prefix='/fruits', tags=['fruits'])
 app.include_router(weather.router, prefix='/weather', tags=['weather'])
+app.include_router(programmation.router, prefix='/programmation', tags=['programmation'])
