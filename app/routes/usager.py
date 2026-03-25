@@ -5,8 +5,12 @@ from app.schemas.usager import UsagerCreate
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from typing import List
+from app.controller.usager_controller import UsagerController
+
 
 router = APIRouter()
+usager_controller = UsagerController()
+
 
 class UsagerAPI():
     def __init__(self, router: APIRouter):
@@ -23,17 +27,14 @@ class UsagerAPI():
 
     def create_usager(self, usager: UsagerCreate, db: Session = Depends(get_db)):
         try:
-            user = Usager(**usager.model_dump(exclude_unset=True))
-            db.add(user)
-            db.commit()
-            db.refresh(user)
-            return user
+            result = usager_controller.create_usager(usager, db)
+            return result
         except Exception as e:
             print(e)
 
     def get_usagers(self, db: Session = Depends(get_db)):
         try:
-            usagers = db.query(Usager).all()
+            usagers = usager_controller.get_usagers(db)
             return usagers
         except Exception as e:
             print(e)
