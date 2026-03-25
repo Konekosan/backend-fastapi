@@ -21,7 +21,6 @@ class WeatherAPI():
     
     async def getWeatherByCityName(self, name):
         try:
-            #return {'city': name}
             return await getWeatherByCity(name)
         except Exception as e:
             print(e)

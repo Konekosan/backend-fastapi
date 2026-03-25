@@ -21,6 +21,7 @@ dict2 = {
     'c': 4
 }
 
+
 class Voiture():
     marque: str
     modele: str
@@ -34,7 +35,7 @@ class Voiture():
         self.annee = annee
         self.age = self.calculer_age(annee)
         self.description()
-        
+
     def description(self):
         #print('Voiture créée : ' + self.marque + ' ' + self.modele + ' ' + str(self.annee))
         print(f"Voiture créée : {self.marque} {self.modele} {self.annee} {self.age}")
@@ -47,6 +48,7 @@ class Voiture():
         year = datetime.today().year
         age = year - annee
         return age
+
 
 class ProgrammationAPI():
 
