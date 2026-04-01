@@ -11,7 +11,7 @@ class UsagerController():
         usagers = db.query(Usager).all()
         return usagers
 
-        
+  
     def create_usager(self, usager: UsagerCreate, db: Session =  Depends(get_db)):
         user = Usager(**usager.model_dump(exclude_unset=True))
         db.add(user)
