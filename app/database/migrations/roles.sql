@@ -1,0 +1,9 @@
+CREATE TABLE role (
+    id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    nom TEXT UNIQUE NOT NULL
+);
+
+
+INSERT INTO role (nom) VALUES
+('Admin'),
+('Utilisateur');
